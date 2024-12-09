@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14 # You can specify any version you need
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgr # Change to your preferred username
+      POSTGRES_PASSWORD: postgrespw # Change to your preferred password
+      POSTGRES_DB: auctions # Change to your preferred database name
+    ports:
+      - '5432:5432' # Map PostgreSQL port 5432 to your host machine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data even after container shutdown
+
+volumes:
+  postgres_data:
